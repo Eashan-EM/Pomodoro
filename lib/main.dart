@@ -3,7 +3,11 @@ import 'package:pomodoro/workspace.dart';
 import 'package:pomodoro/tasks.dart';
 import 'package:pomodoro/data.dart';
 import 'dart:ui';
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Data data = Data();
+  await data.readFile();
   runApp(const MyApp());
 }
 
@@ -14,6 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Pomodoro',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink.shade100),

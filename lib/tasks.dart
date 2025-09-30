@@ -49,8 +49,27 @@ class Task {
                   ),
               ]
             ),
-
-          ],
+            Row(
+              children: [
+                SizedBox(width: 12),
+                Text(
+                  "Repeat Interval: ",
+                  style: TextStyle(
+                    fontFamily: "Monospace",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15.0
+                  ),
+                ),
+                Text(
+                  data.workspaces[data.currentWorkID].repeat,
+                  style: TextStyle(
+                    fontFamily: "Monospace",
+                    fontSize: 15.0
+                  ),
+                )
+              ],
+            ),
+         ],
         ),
       ),
     );
