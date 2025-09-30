@@ -189,13 +189,13 @@ class Data {
     //await writeData(fillSpecialData());
     if (await fileDoesNotExists()) {
       jsonString = fillSpecialData();
-      await writeData(jsonString);
+      writeData(jsonString);
     } else {
       jsonString = await readData();
-      Map<String, dynamic> data = jsonDecode(jsonString);
-      for (var work in data["workspaces"]) {
-        workspaces.add(WorkData(work));
-      }
+    }
+    Map<String, dynamic> data = jsonDecode(jsonString);
+    for (var work in data["workspaces"]) {
+      workspaces.add(WorkData(work));
     }
   }
 
